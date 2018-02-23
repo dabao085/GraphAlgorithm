@@ -1,0 +1,11 @@
+V1.0 20180223
+1.实现图的存储结构（CGraph类）
+2.实现基于CGraph类的拓扑排序（TopSort）
+
+V1.0.1 20180223
+1.修改图的存储结构（CGraph类）
+1.1邻接表成员变量m_adjacencyListMap，从std::map<int, std::list<CVertex>>改为std::map<int, std::list<int>>，只记录下标，
+通过下标去m_allVertexes里查找最新的节点信息。
+1.2所有节点信息成员变量m_allVertexes，从std::set<CVertex>改为std::map<int, CVertex>，以index做为索引，加快检索效率。
+1.3（暂时不改动）修改CEdge类中m_firstVertexIndex和m_secondVertexIndex类型，从CVertex改为int，节点的信息从
+1.4TopSort中，队列std::queue<CVertex>改为std::queue<int>
