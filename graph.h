@@ -19,7 +19,9 @@ public:
 	int GetTopNum() const{ return m_topNum; }
 	int GetDistance() const{ return m_distance; }
 	int GetPathIndex()const{ return m_pathIndex; }
+	bool GetKnown() const { return m_known; }
 public:
+	void SetKnown(bool known){ m_known = known; }
 	void SetDistance(int distance){ m_distance = distance; }
 	void SetPathIndex(int pathIndex){ m_pathIndex = pathIndex; }
 	void SetTopNum(int topNum){ m_topNum = topNum; }
@@ -34,25 +36,26 @@ private:
 	int m_topNum;	//顶点的拓扑排序编号
 	int m_distance;	//到目的节点的距离，用于图的遍历
 	int m_pathIndex;//下一节点的index，用于图的遍历
+	bool m_known;	//节点是否known，用于dijkstra单源最短路径
 };
 
 class CEdge
 {
 public:
 	CEdge(int firstIndex, int secondIndex, int weight):
-		m_firstVertex(CVertex(firstIndex)),
-		m_secondVertex(CVertex(secondIndex)),
+		m_firstVertexIndex(firstIndex),
+		m_secondVertexIndex(secondIndex),
 		m_weight(weight)
 	{}
 
 	const int GetWeight() const { return m_weight; }
-	CVertex GetFirstVertex() const { return m_firstVertex; }
-	CVertex GetSecondVertex() const { return m_secondVertex; }
+	CVertex GetFirstVertex() const { return m_firstVertexIndex; }
+	CVertex GetSecondVertex() const { return m_secondVertexIndex; }
 
 private:
 	int m_weight;				//权重
-	CVertex m_firstVertex;
-	CVertex m_secondVertex;
+	int m_firstVertexIndex;		//记录节点index，具体的节点信息需要从图CGraph类中查询，单独的CEdge没有意义
+	int m_secondVertexIndex;
 };
 
 class CGraph

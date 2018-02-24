@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BreadthFirst.cpp" />
+    <ClCompile Include="dijkstraAlgorithm.cpp" />
     <ClCompile Include="graph.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="main_test.cpp" />

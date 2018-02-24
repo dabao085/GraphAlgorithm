@@ -38,6 +38,9 @@
     <ClCompile Include="BreadthFirst.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="dijkstraAlgorithm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt">

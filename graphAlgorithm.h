@@ -14,4 +14,7 @@ int BreadthFirst(CGraph &graph, int index);
 //深度优先遍历
 int WidthFirst(CGraph &graph, int index);
 
+//DijkstraAlgorithm最短路径
+int DijkstraAlgorhm(CGraph &graph, int index);
+
 #endif
