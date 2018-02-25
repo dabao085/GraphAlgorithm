@@ -52,6 +52,9 @@ public:
 	CVertex GetFirstVertex() const { return m_firstVertexIndex; }
 	CVertex GetSecondVertex() const { return m_secondVertexIndex; }
 
+public:
+	void SetWeight(int weight){ m_weight = weight; }
+
 private:
 	int m_weight;				//权重
 	int m_firstVertexIndex;		//记录节点index，具体的节点信息需要从图CGraph类中查询，单独的CEdge没有意义
@@ -70,6 +73,7 @@ public:
 	std::map<int, CVertex>& GetAllVertex() { return m_allVertexesMap; }
 	std::map<int, std::list<int>>& GetAdjacencyListMap(){ return m_adjacencyListMap; }
 	int GetVertexNum() const{ return m_vertexNum; }
+	std::vector<CEdge>& GetEdgeVec()  { return m_edgeVec; }
 private:
 	//初始化并存储所有的边
 	int InitEdgeVec(int firstIndex, int secondIndex, int weight);
