@@ -52,5 +52,8 @@
     <Text Include="inputBreadthFirst.txt">
       <Filter>源文件</Filter>
     </Text>
+    <Text Include="inputDijkstra.txt">
+      <Filter>源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>

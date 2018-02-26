@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
 	CGraph graph;
-	graph.CreateGraph("inputBreadthFirst.txt");
+	graph.CreateGraph("inputDijkstra.txt");
 
 	cout << "----------Print Graph Reuslt ----------------" << endl;
 	graph.PrintGraph();
@@ -18,10 +18,16 @@ int main()
 	//	return -1;
 	//}
 
-	if (BreadthFirst(graph, 3) < 0)
+	//if (BreadthFirst(graph, 3) < 0)
+	//{
+	//	std::cout << "[ERROR]: BreadthFirst failed!" << std::endl;
+	//	return -1;
+	//}
+
+	if (DijkstraAlgorhm(graph, 1) < 0)
 	{
-		std::cout << "[ERROR]: BreadthFirst failed!" << std::endl;
-		return -1;
+			std::cout << "[ERROR]: DijkstraAlgorhm failed!" << std::endl;
+			return -1;
 	}
 
 	return 0;

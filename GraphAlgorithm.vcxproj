@@ -90,6 +90,7 @@
     <ClCompile Include="TopSort.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="inputDijkstra.txt" />
     <Text Include="input.txt" />
     <Text Include="inputBreadthFirst.txt" />
     <Text Include="version.txt" />

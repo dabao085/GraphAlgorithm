@@ -42,15 +42,15 @@ private:
 class CEdge
 {
 public:
-	CEdge(int firstIndex, int secondIndex, int weight):
+	explicit CEdge(int firstIndex, int secondIndex, int weight):
 		m_firstVertexIndex(firstIndex),
 		m_secondVertexIndex(secondIndex),
 		m_weight(weight)
 	{}
 
 	const int GetWeight() const { return m_weight; }
-	CVertex GetFirstVertex() const { return m_firstVertexIndex; }
-	CVertex GetSecondVertex() const { return m_secondVertexIndex; }
+	int GetFirstVertex() const { return m_firstVertexIndex; }
+	int GetSecondVertex() const { return m_secondVertexIndex; }
 
 public:
 	void SetWeight(int weight){ m_weight = weight; }
