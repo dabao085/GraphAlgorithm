@@ -43,6 +43,7 @@ int DijkstraAlgorhm(CGraph &graph, int index)
 	std::priority_queue<int> l_queue;
 	l_queue.push(index);
 
+	std::cout << "----------------" << std::endl;
 	while (!l_queue.empty())
 	{
 		int tmp_index = l_queue.top();
@@ -60,20 +61,25 @@ int DijkstraAlgorhm(CGraph &graph, int index)
 		//找到邻接节点并处理
 		for (auto a : tmp_adjacencyListMap[tmp_index])
 		{
-			//赋予初始权值
-			if (tmp_infoTable[a - 1][3] == 0)
-				tmp_infoTable[a - 1][3] = tmp_weightTable[tmp_index - 1][a - 1];
+			//unknown赋予初始权值
+			if (tmp_infoTable[a - 1][2] == CVertex::GRAPHINFINITY)
+			{
+				tmp_infoTable[a - 1][2] = tmp_weightTable[tmp_index - 1][a - 1];
+				std::cout << tmp_infoTable[a - 1][2] << std::endl;
+				tmp_infoTable[a - 1][3] = tmp_index;
+				l_queue.push(a);
+			}
 			else
 			{
 				int tmp_preIndex = tmp_infoTable[a - 1][3];
 				if (tmp_infoTable[tmp_preIndex - 1][2] + tmp_weightTable[a - 1][2] > tmp_infoTable[a - 1][2])
 				{
-					//更新距离和上一节点index信息
+					//检查是否需要更新距离和上一节点index信息
+					std::cout << tmp_infoTable[tmp_preIndex - 1][2] + tmp_weightTable[a - 1][2] << std::endl;
 					tmp_infoTable[a - 1][2] = tmp_infoTable[tmp_preIndex - 1][2] + tmp_weightTable[a - 1][2];
 					tmp_infoTable[a - 1][3] = tmp_index;
 				}
-			}
-			l_queue.push(a);
+			}		
 		}
 	}
 
